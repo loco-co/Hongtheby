@@ -55,7 +55,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],  # 공용의 템플릿이 있는 디렉터리, BASE_DIR은 C:\projects\Hongtheby's
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d857763-88a4-46ec-b2c5-2818a6450124" name="Default Changelist" comment="Chapter 2.2">
+      <change afterPath="$PROJECT_DIR$/templates/art/item_detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/art/item_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/art/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/art/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/art/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/art/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/art/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/art/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +59,14 @@
       <option name="project" value="LOCAL" />
       <updated>1634984056629</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Chapter 2.2">
+      <created>1634984667340</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1634984667340</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
