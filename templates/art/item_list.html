@@ -50,13 +50,16 @@
     </div>
 </div>
 <!-- Carousel -->
+<div class="row-2 border-top lg py-3 my-4">
 {% if item_list %}
-    <ul>
     {% for item in item_list %}
-        <li><a href="{% url 'art:detail' item.id %}">{{ item.subject }}</a></li>  <!-- item.id는 인자 -->
+    <div class="container m-5">
+    <p><img src="{{ item.image.url }}" class="img-thumbnail rounded" alt="..." width=40% height=40%></p>
+    <a href="{% url 'art:detail' item.id %}">{{ item.subject }}</a>  <!-- item.id는 인자 -->
+    </div>
     {% endfor %}
-    </ul>
 {% else %}
     <p>게시글이 없습니다.</p>
 {% endif %}
+</div>
 {% endblock %}
