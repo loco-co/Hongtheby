@@ -1,12 +1,23 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Item
+from django.core.paginator import Paginator
+
 
 def index(request):
     """
     item 목록 출력
     """
+    # 입력 파라미터
+    page = request.GET.get('page', '1')  # get 방식으로 호출된 페이지, 디폴트는 1
+
+    # 작성순으로 조회
     item_list = Item.objects.order_by('-create_date')
-    context = {'item_list': item_list}
+
+    # 페이징처리
+    paginator = Paginator(item_list, 8)  # 페이지당 8개씩 보여주기
+    page_obj = paginator.get_page(page)
+
+    context = {'item_list': page_obj}
     return render(request, 'art/item_list.html', context)
 
 def detail(request, item_id):  # 매개변수 id를 전달받음
