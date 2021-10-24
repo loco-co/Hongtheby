@@ -1,0 +1,40 @@
+{% load static %} <!-- static 파일 사용 -->
+<!doctype html>
+<html lang="ko">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
+    <!-- project CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"> <!-- stylesheet 파일 경로 -->
+    <title>Hongtheby's</title>
+</head>
+<body>
+<!-- 네비게이션 바 -->
+<ul class="nav justify-content-center bg-light">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled">Disabled</a>
+  </li>
+</ul>
+<!-- 네비게이션 바 끝 -->
+<!-- 기본 템플릿 안에 삽입될 내용 Start -->
+{% block content %}
+{% endblock %}
+<!-- 기본 템플릿 안에 삽입될 내용 End -->
+<!-- jQuery JS -->
+<script src="{% static 'jquery-3.4.1.min.js' %}"></script>
+<!-- Bootstrap JS -->
+<script src="{% static 'bootstrap.min.js' %}"></script>
+</body>
+</html>

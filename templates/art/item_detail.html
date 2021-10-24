@@ -1,8 +1,9 @@
-{% load static %} <!-- static 파일 사용 -->
-<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"> <!-- stylesheet 파일 경로 -->
+{% extends 'base.html' %}
+{% block content %}
 <!-- context로 넘겨받음 -->
 <h1>{{ item.subject }}</h1>
 
 <div>
     {{ item.content }}
 </div>
+{% endblock %}
