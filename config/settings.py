@@ -127,5 +127,8 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# 로그인 성공후 이동하는 URL
+# 로그인 성공후 이동하는 URL redirect
 LOGIN_REDIRECT_URL = '/'
+
+# 로그아웃시 이동하는 URL redirect
+LOGOUT_REDIRECT_URL = '/'
