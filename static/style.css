@@ -1,0 +1,39 @@
+.figure {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 40px;
+    margin-inline-end: 40px;
+    }
+.carousel-inner img {
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 480px;
+    }
+.box {
+    display: inline-block;
+    width: 350px;
+    height: 400px;
+    }
+.pagination > li > a
+{
+    background-color: white;
+    color: #20c997;
+}
+.pagination > li > span:hover
+{
+    color: #20c997;
+    background-color: #eee;
+    border-color: #ddd;
+}
+.pagination > .active > a
+{
+    color: white;
+    background-color: #20c997 !Important;
+    border: solid 1px #20c997 !Important;
+}
+.pagination > .active > a:hover
+{
+    background-color: #20c997 !Important;
+    border: solid 1px #20c997;
+}
