@@ -7,7 +7,7 @@ class Item(models.Model):
     price = models.IntegerField()
     content = models.TextField()
     create_date = models.DateTimeField()
-    image = models.ImageField(upload_to='images/')
+    image = models.ImageField(upload_to='images/', blank=True, null=True)
 
     def __str__(self):  # id 대신 제목을 반환하도록
         return self.title

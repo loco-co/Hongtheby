@@ -1,7 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Item
 from django.core.paginator import Paginator
-
+from .forms import ItemForm
+from django.utils import timezone
 
 def index(request):
     """
@@ -27,3 +28,29 @@ def detail(request, item_id):  # 매개변수 id를 전달받음
     item = get_object_or_404(Item, pk=item_id)  # 404에러 띄우기, 정상적이면 Item 객체에서 기본키로 객체를 찾아옴
     context = {'item': item}
     return render(request, 'art/item_detail.html', context)
+
+def item_create(request):
+    """
+    item 게시글 등록
+    """
+    if request.method == 'POST':
+        title = request.POST['title']
+        content = request.POST['content']
+        date = timezone.now()
+        price = request.POST['price']
+        subject = request.POST['subject']
+        img = request.FILES['image']
+        item = Item(
+            title=title,
+            content=content,
+            create_date=date,
+            price=price,
+            subject=subject,
+            image=img,
+        )
+        item.save()
+        return redirect('art:index')
+    else:
+        form = ItemForm()
+    context = {'form': form}  # 템플릿에서 글등록시 사용할 폼 엘리먼트를 위해
+    return render(request, 'art/item_form.html', context)

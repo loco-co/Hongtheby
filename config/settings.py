@@ -124,8 +124,8 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 
-MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 # 로그인 성공후 이동하는 URL redirect
 LOGIN_REDIRECT_URL = '/'
