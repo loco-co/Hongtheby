@@ -42,21 +42,25 @@
     </div>
 </div>
 <!-- Carousel -->
-<div class="row-2 border-top lg py-3 my-4">
+<div class="row justify-content-center border-top lg my-5">
 {% if item_list %}
     {% for item in item_list %}
     <div class="box m-5">
         {% if item.image %}
         <figure><img src="{{ item.image.url }}" class="img-thumbnail rounded" alt="..."></figure>
         {% endif %}
-    <a class="text-success" href="{% url 'art:detail' item.id %}">{{ item.subject }}</a>  <!-- item.id는 인자 -->
+    <a class="text-dark" href="{% url 'art:detail' item.id %}" style="text-decoration:none"><h6>🎨{{ item.subject }}🎨</h6></a>  <!-- item.id는 인자 -->
     </div>
     {% endfor %}
 {% else %}
     <p>게시글이 없습니다.</p>
 {% endif %}
+    </div>
+    <div class="container my-5">
     <!-- 페이징처리 시작 -->
-    <ul class="pagination justify-content-center">
+        <div class="row">
+            <div class="col-11">
+        <ul class="pagination justify-content-center">
         <!-- 이전페이지 -->
         {% if item_list.has_previous %}
         <li class="page-item">
@@ -91,11 +95,13 @@
             <a class="page-link" tabindex="-1" aria-disabled="true" href="#">다음</a>
         </li>
         {% endif %}
-        <div align="right">
+            </div>
+        <div class="col-1">
         <a href="{% url 'art:item_create' %}" class="btn text-white" style="background-color: #20c997;">글쓰기</a>
     </div>
     </ul>
     <!-- 페이징처리 끝 -->
+    </div>
 </div>
 </div>
 {% endblock %}
