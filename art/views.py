@@ -1,8 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Item
-from django.core.paginator import Paginator
 from .forms import ItemForm
+from django.core.paginator import Paginator
 from django.utils import timezone
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+
 
 def index(request):
     """
@@ -29,6 +32,7 @@ def detail(request, item_id):  # 매개변수 id를 전달받음
     context = {'item': item}
     return render(request, 'art/item_detail.html', context)
 
+@login_required(login_url='common:login')
 def item_create(request):
     """
     item 게시글 등록
@@ -40,6 +44,7 @@ def item_create(request):
         price = request.POST['price']
         subject = request.POST['subject']
         img = request.FILES['image']
+        user = request.user
         item = Item(
             title=title,
             content=content,
@@ -47,6 +52,7 @@ def item_create(request):
             price=price,
             subject=subject,
             image=img,
+            author=user,
         )
         item.save()
         return redirect('art:index')
@@ -54,3 +60,4 @@ def item_create(request):
         form = ItemForm()
     context = {'form': form}  # 템플릿에서 글등록시 사용할 폼 엘리먼트를 위해
     return render(request, 'art/item_form.html', context)
+

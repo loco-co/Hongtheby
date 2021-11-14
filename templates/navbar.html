@@ -23,9 +23,9 @@
     <a class="nav-link dropdown-toggle" style="color: #20c997" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><strong>마이페이지</strong></a>
     <ul class="dropdown-menu">
         {% if user.is_authenticated %}
-                <li><a class="dropdown-item" href="#" style="color: #20c997">로그아웃</a></li>
+                <li><a class="dropdown-item" href="{% url 'common:logout' %}" style="color: #20c997">로그아웃</a></li>
                 {% else %}
-                <li><a class="dropdown-item" href="#" style="color: #20c997">로그인</a></li>
+                <li><a class="dropdown-item" href="{% url 'common:login' %}" style="color: #20c997">로그인</a></li>
                 {% endif %}
     </ul>
   </li>
