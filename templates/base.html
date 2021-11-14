@@ -19,10 +19,14 @@
 <!-- 기본 템플릿 안에 삽입될 내용 End -->
 {% include "footer.html" %}
 <!-- jQuery JS -->
-<script src="{% static 'jquery-3.4.1.min.js' %}"></script>
+<script src="{% static 'jquery-3.6.0.min.js' %}"></script>
 <!-- Bootstrap JS -->
 <script src="{% static 'bootstrap.min.js' %}"></script>
 <!-- Bundle JS for drop down-->
 <script src="{% static 'bootstrap.bundle.js' %}"></script>
+<!-- 자바스크립트 Start -->
+{% block script %}
+{% endblock %}
+<!-- 자바스크립트 End -->
 </body>
 </html>

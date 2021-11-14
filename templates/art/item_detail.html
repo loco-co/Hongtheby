@@ -45,8 +45,21 @@
     {% if request.user == item.author %}
         <div class="d-flex justify-content-end mb-5">
             <a href="{% url 'art:item_modify' item.id  %}"
-               class="btn btn-md btn-outline-secondary">수정</a>
+               class="btn btn-md btn-outline-secondary mx-2">수정</a>
+            <a href="#" class="delete btn btn-md btn-outline-secondary"
+       data-uri="{% url 'art:item_delete' item.id  %}">삭제</a>
         </div>
         {% endif %}
 </div>
+{% endblock %}
+{% block script %}
+<script type='text/javascript'>
+$(document).ready(function(){
+    $(".delete").on('click', function() {
+        if(confirm("정말로 삭제하시겠습니까?")) {
+            location.href = $(this).data('uri');
+        }
+    });
+});
+</script>
 {% endblock %}

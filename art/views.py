@@ -82,3 +82,15 @@ def item_modify(request, item_id):
         form = ItemForm(instance=item)
     context = {'form': form}
     return render(request, 'art/item_form.html', context)
+
+@login_required(login_url='common:login')
+def item_delete(request, item_id):
+    """
+    item 게시글 삭제
+    """
+    item = get_object_or_404(Item, pk=item_id)
+    if request.user != item.author:
+        messages.error(request, '삭제권한이 없습니다')
+        return redirect('art:detail', item_id=item.id)
+    item.delete()
+    return redirect('art:index')
