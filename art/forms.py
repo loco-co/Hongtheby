@@ -1,5 +1,5 @@
 from django import forms
-from art.models import Item
+from art.models import Item, Comment
 
 
 class ItemForm(forms.ModelForm):
@@ -12,4 +12,12 @@ class ItemForm(forms.ModelForm):
             'content': '내용',
             'price': '가격',
             'image': '사진 업로드',
+        }
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['content']
+        labels = {
+            'content': '댓글내용',
         }

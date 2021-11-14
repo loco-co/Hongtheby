@@ -47,9 +47,35 @@
             <a href="{% url 'art:item_modify' item.id  %}"
                class="btn btn-md btn-outline-secondary mx-2">수정</a>
             <a href="#" class="delete btn btn-md btn-outline-secondary"
-       data-uri="{% url 'art:item_delete' item.id  %}">삭제</a>
+            data-uri="{% url 'art:item_delete' item.id  %}">삭제</a>
         </div>
-        {% endif %}
+    {% endif %}
+    <!-- 댓글 Start -->
+    {% if item.comment_set.count > 0 %}
+    <div class="mt-3">
+    {% for comment in item.comment_set.all %}  <!-- 등록한 댓글을 출력 -->
+        <div class="comment py-2 text-muted">  <!-- 댓글 각각에 comment 스타일 지정 -->
+            <span style="white-space: pre-line;">{{ comment.content }}</span>
+            <span>
+                - {{ comment.author }}, {{ comment.create_date }}
+                {% if comment.modify_date %}
+                (수정:{{ comment.modify_date }})
+                {% endif %}
+            </span>
+            {% if request.user == comment.author %}
+            <a href="{% url 'art:comment_modify' comment.id  %}" class="small">수정</a>,
+            <a href="#" class="small delete"
+               data-uri="{% url 'art:comment_delete' comment.id  %}">삭제</a>
+            {% endif %}
+        </div>
+    {% endfor %}
+    </div>
+    {% endif %}
+    <div>
+        <a href="{% url 'art:comment_create' item.id  %}"
+           class="small"><small>댓글 추가 ..</small></a>  <!-- 댓글 추가 링크 -->
+    </div>
+    <!-- 댓글 End -->
 </div>
 {% endblock %}
 {% block script %}
