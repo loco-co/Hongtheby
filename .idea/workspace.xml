@@ -3,12 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="6d857763-88a4-46ec-b2c5-2818a6450124" name="Default Changelist" comment="Chapter 2.6 &amp; 2.7">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/art/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/art/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/art/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/art/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/art/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/art/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/art/item_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/art/item_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/common/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/art/item_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/art/item_form.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636874929020</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="author 속성 추가">
+      <created>1636876678600</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1636876678600</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -214,6 +220,7 @@
     <MESSAGE value="drop down nav" />
     <MESSAGE value="2021.11.12" />
     <MESSAGE value="item detail" />
-    <option name="LAST_COMMIT_MESSAGE" value="item detail" />
+    <MESSAGE value="author 속성 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="author 속성 추가" />
   </component>
 </project>

@@ -1,15 +1,27 @@
 {% extends 'base.html' %} <!-- context로 넘겨받음 -->
 {% block content %}
 <div class="container">
-    <h2 class="border-bottom py-2">{{ item.subject }}</h2>
-    <div class="row my-4 mb-5">
-        <div class="col mb-5">
+    <!-- 사용자오류 표시 -->
+    {% if messages %}
+    <div class="alert alert-danger my-3" role="alert">
+    {% for message in messages %}
+        <strong>{{ message.tags }}</strong>
+        <ul><li>{{ message.message }}</li></ul>
+    {% endfor %}
+    </div>
+    {% endif %}
+    <h2 class="pt-2">{{ item.subject }}</h2>
+    <div class="d-flex justify-content-end border-bottom">
+    <h6>작성자: {{ item.author }}</h6>
+    </div>
+    <div class="row mt-4">
+        <div class="col">
             <div class="detail-box">
             <img src="{{ item.image.url }}" class="img-thumbnail rounded float-start" alt="...">
             </div>
         </div>
 
-    <div class="col mb-5">
+    <div class="col">
         <div class="card">
             <div class="card-body">
                 <div class="card-text" style="white-space: pre-line;"><h5><strong>제목: {{ item.title }}</strong></h5></div>
@@ -30,10 +42,10 @@
     </div>
     </div>
     </div>
-    {% if request.user == question.author %}
-        <div class="my-3">
+    {% if request.user == item.author %}
+        <div class="d-flex justify-content-end mb-5">
             <a href="{% url 'art:item_modify' item.id  %}"
-               class="btn btn-sm btn-outline-secondary">수정</a>
+               class="btn btn-md btn-outline-secondary">수정</a>
         </div>
         {% endif %}
 </div>

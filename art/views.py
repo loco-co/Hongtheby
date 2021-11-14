@@ -61,3 +61,24 @@ def item_create(request):
     context = {'form': form}  # 템플릿에서 글등록시 사용할 폼 엘리먼트를 위해
     return render(request, 'art/item_form.html', context)
 
+@login_required(login_url='common:login')
+def item_modify(request, item_id):
+    """
+    item 게시글 수정
+    """
+    item = get_object_or_404(Item, pk=item_id)
+    if request.user != item.author:
+        messages.error(request, '수정권한이 없습니다')
+        return redirect('art:detail', item_id=item.id)
+
+    if request.method == "POST":
+        form = ItemForm(request.POST, request.FILES, instance=item)
+        if form.is_valid():
+            item = form.save(commit=False)
+            item.modify_date = timezone.now()  # 수정일시 저장
+            item.save()
+            return redirect('art:detail', item_id=item.id)
+    else:
+        form = ItemForm(instance=item)
+    context = {'form': form}
+    return render(request, 'art/item_form.html', context)
