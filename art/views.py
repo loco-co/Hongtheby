@@ -18,7 +18,7 @@ def index(request):
     item_list = Item.objects.order_by('-create_date')
 
     # 페이징처리
-    paginator = Paginator(item_list, 8)  # 페이지당 8개씩 보여주기
+    paginator = Paginator(item_list, 6)  # 페이지당 6개씩 보여주기
     page_obj = paginator.get_page(page)
 
     context = {'item_list': page_obj}
