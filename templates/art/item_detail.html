@@ -1,9 +1,34 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} <!-- context로 넘겨받음 -->
 {% block content %}
-<!-- context로 넘겨받음 -->
-<h1>{{ item.subject }}</h1>
+<div class="container">
+    <h2 class="border-bottom py-2">{{ item.subject }}</h2>
+    <div class="row my-4 mb-5">
+        <div class="col mb-5">
+            <div class="detail-box">
+            <img src="{{ item.image.url }}" class="img-thumbnail rounded float-start" alt="...">
+            </div>
+        </div>
 
-<div>
-    {{ item.content }}
+    <div class="col mb-5">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-text" style="white-space: pre-line;"><h5><strong>제목: {{ item.title }}</strong></h5></div>
+                <div class="card-text" style="white-space: pre-line;"><h5><strong>가격: {{ item.price }}</strong></h5></div>
+                <div class="d-flex justify-content-end">
+            </div>
+        </div>
+    </div>
+        <div class="card mt-1">
+            <div class="card-body">
+                <div class="card-text" style="white-space: pre-line;">{{ item.content }}</div>
+                <div class="d-flex justify-content-end">
+                <div class="p-2">
+                    {{ item.create_date }}
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
 </div>
 {% endblock %}
