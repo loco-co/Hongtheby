@@ -9,4 +9,5 @@ urlpatterns = [
          name='login'),  # loginview 그대로 사용, registration 이 아닌 common 디렉터리에 템플릿을 생성
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('signup/', views.signup, name='signup'),
+    path('mypage/', views.mypage, name='mypage'),
 ]

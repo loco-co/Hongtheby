@@ -19,3 +19,9 @@ def signup(request):
     else:
         form = UserForm()
     return render(request, 'common/signup.html', {'form': form})
+
+def mypage(request):
+    """
+    마이페이지
+    """
+    return render(request, 'common/mypage.html', context=None)

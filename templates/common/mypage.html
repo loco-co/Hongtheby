@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  <div class="row">
+      <div class="col">
+          <h3 class="border-bottom my-4">계정 정보</h3>
+          <div class="card" style="width: 26rem;">
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item">ID: {{ request.user }}</li>
+            <li class="list-group-item">E-mail: {{ request.user.email }}</li>
+            <li class="list-group-item">최종 로그인: {{ request.user.last_login }}</li>
+            <li class="list-group-item">가입 날짜: {{ request.user.date_joined }}</li>
+            </ul>
+          </div>
+      </div>
+      <div class="col">
+        <div class="border-bottom"> <!-- 갤러리 형태로 보기-->
+            <h3 class="border-bottom my-4">내가 쓴 글</h3>
+            <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">제목</th>
+                <th scope="col">등록일자</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            </table>
+            </div>
+        <div class="border-bottom">
+        <h3 class="border-bottom my-4">내가 쓴 댓글</h3>
+            <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">제목</th>
+                <th scope="col">등록일자</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            </table>
+        </div>
+      </div>
+  </div>
+</div>
+{% endblock %}
