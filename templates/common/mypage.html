@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container">
+<div class="container mb-5">
   <div class="row">
       <div class="col">
           <h3 class="border-bottom my-4">계정 정보</h3>
@@ -14,31 +14,61 @@
           </div>
       </div>
       <div class="col">
-        <div class="border-bottom"> <!-- 갤러리 형태로 보기-->
+        <div class> <!-- 갤러리 형태로 보기-->
             <h3 class="border-bottom my-4">내가 쓴 글</h3>
             <table class="table">
             <thead>
                 <tr>
                 <th scope="col">#</th>
-                <th scope="col">제목</th>
+                <th scope="col" style="width:50%">제목</th>
                 <th scope="col">등록일자</th>
                 </tr>
             </thead>
             <tbody>
+            {% if my_item %}
+            {% for item in my_item %}
+            {% if forloop.counter < 6 %}
+                <tr style="white-space: nowrap;">
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ item.title }}</td>
+                <td><small>{{ item.create_date }}</small></td>
+                </tr>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <tr>
+            <td colspan="3">등록한 글이 없습니다.</td>
+            </tr>
+            {% endif %}
             </tbody>
             </table>
             </div>
-        <div class="border-bottom">
+        <div class="mb-5">
         <h3 class="border-bottom my-4">내가 쓴 댓글</h3>
             <table class="table">
             <thead>
                 <tr>
                 <th scope="col">#</th>
-                <th scope="col">제목</th>
+                <th scope="col" style="width:50%">내용</th>
                 <th scope="col">등록일자</th>
                 </tr>
             </thead>
             <tbody>
+            {% if my_comment %}
+            {% for comment in my_comment %}
+            {% if forloop.counter < 6 %}
+                <tr style="white-space: nowrap;">
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{ comment.content }}</td>
+                <td><small>{{ comment.create_date }}</small></td>
+                </tr>
+            {% endif %}
+            {% endfor %}
+            {% else %}
+            <tr>
+            <td colspan="3">등록한 댓글이 없습니다.</td>
+            </tr>
+            {% endif %}
             </tbody>
             </table>
         </div>

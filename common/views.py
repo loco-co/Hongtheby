@@ -1,7 +1,7 @@
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 from common.forms import UserForm
-
+from art.models import Item, Comment
 
 def signup(request):
     """
@@ -24,4 +24,8 @@ def mypage(request):
     """
     마이페이지
     """
-    return render(request, 'common/mypage.html', context=None)
+    my_item_list = Item.objects.order_by('-create_date')
+    my_comment_list = Comment.objects.order_by('-create_date')
+    context = {'my_item': my_item_list,
+               'my_comment': my_comment_list, }
+    return render(request, 'common/mypage.html', context)
