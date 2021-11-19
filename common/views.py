@@ -29,3 +29,9 @@ def mypage(request):
     context = {'my_item': my_item_list,
                'my_comment': my_comment_list, }
     return render(request, 'common/mypage.html', context)
+
+def credit(request):
+    """
+    크레딧
+    """
+    return render(request, 'common/credit.html')
