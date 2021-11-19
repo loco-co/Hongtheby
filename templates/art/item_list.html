@@ -45,11 +45,15 @@
 <div class="row justify-content-center border-top lg my-5">
 {% if item_list %}
     {% for item in item_list %}
-    <div class="box m-5">
+    <div class="box m-5 mt-6">
         {% if item.image %}
         <figure><img src="{{ item.image.url }}" class="img-thumbnail rounded" alt="..."></figure>
         {% endif %}
-            <a class="text-dark" href="{% url 'art:detail' item.id %}" style="text-decoration:none"><h6>🎨{{ item.subject }}</h6></a>  <!-- item.id는 인자 -->
+        <a class="text-dark" href="{% url 'art:detail' item.id %}" style="text-decoration:none"><h6>🎨{{ item.subject }}</h6></a>  <!-- item.id는 인자 -->
+        <span class="float-end small">
+            추천<span class="badge" style="background-color: #20c997;">{{item.voter.all.count}}</span>
+            댓글<span class="badge" style="background-color: #20c997;">{{item.comment_set.count}}</span>
+            </span>
     </div>
     {% endfor %}
 {% else %}

@@ -15,6 +15,7 @@
     display: inline-block;
     width: 350px;
     height: 400px;
+    margin-top: 20px;
     }
 .detail-box {
     display: inline-block;
@@ -57,3 +58,6 @@
     font-size:0.7em;
 }
 a { text-decoration:none }
+.mt-6 {
+  margin-top: 66px !important;
+}

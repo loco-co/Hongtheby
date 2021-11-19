@@ -147,3 +147,16 @@ def comment_delete(request, comment_id):
     else:
         comment.delete()
     return redirect('art:detail', item_id=comment.item.id)
+
+def vote_item(request, item_id):
+    """
+    item 추천
+    """
+    item = get_object_or_404(Item, pk=item_id)
+    if request.user == item.author:
+        messages.warning(request, '본인이 작성한 글은 추천할수 없습니다')
+    if request.user in item.voter.all():
+        messages.warning(request, '이미 추천한 게시글입니다')
+    else:
+        item.voter.add(request.user)
+    return redirect('art:detail', item_id=item.id)
