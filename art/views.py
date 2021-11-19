@@ -5,7 +5,7 @@ from django.core.paginator import Paginator
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.db.models import Q
+from django.db.models import Q, Count
 
 def index(request):
     """
@@ -14,9 +14,15 @@ def index(request):
     # 입력 파라미터
     page = request.GET.get('page', '1')  # get 방식으로 호출된 페이지 중 1페이지, 디폴트는 1
     kw = request.GET.get('kw', '')  # 검색어
+    so = request.GET.get('so', 'recent')  # 정렬기준
+
+    if so == 'recommend':
+        item_list = Item.objects.annotate(num_voter=Count('voter')).order_by('-num_voter', '-create_date')
+    else:  # recent
+        item_list = Item.objects.order_by('-create_date')
 
     # 작성순으로 조회
-    item_list = Item.objects.order_by('-create_date')
+
     if kw:
         item_list = item_list.filter(
             Q(subject__icontains=kw) |  # 제목검색
@@ -28,7 +34,7 @@ def index(request):
     paginator = Paginator(item_list, 6)  # 페이지당 6개씩 보여주기
     page_obj = paginator.get_page(page)  # 1페이지의 페이징 객체 생성, 전체를 조회하지 않음
 
-    context = {'item_list': page_obj, 'page': page, 'kw': kw}
+    context = {'item_list': page_obj, 'page': page, 'kw': kw, 'so': so}
     return render(request, 'art/item_list.html', context)
 
 def detail(request, item_id):  # 매개변수 id를 전달받음
