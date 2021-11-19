@@ -3,10 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="6d857763-88a4-46ec-b2c5-2818a6450124" name="Default Changelist" comment="Chapter 2.6 &amp; 2.7">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/art/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/art/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/art/item_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/art/item_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/common/mypage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/mypage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/art/comment_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/art/comment_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/art/item_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/art/item_detail.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -235,7 +236,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637160358674</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="마이페이지 백엔드">
+      <created>1637164965172</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1637164965172</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -251,7 +259,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Beginning" />
     <MESSAGE value="Chapter 2.1" />
     <MESSAGE value="Chapter 2.2" />
     <MESSAGE value="Chapter 2.4" />
@@ -276,6 +283,7 @@
     <MESSAGE value="게시물 댓글 백엔드" />
     <MESSAGE value="footer css" />
     <MESSAGE value="마이페이지 프론트엔드" />
-    <option name="LAST_COMMIT_MESSAGE" value="마이페이지 프론트엔드" />
+    <MESSAGE value="마이페이지 백엔드" />
+    <option name="LAST_COMMIT_MESSAGE" value="마이페이지 백엔드" />
   </component>
 </project>

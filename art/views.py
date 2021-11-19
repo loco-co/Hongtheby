@@ -111,9 +111,7 @@ def comment_create(request, item_id):
             comment.save()
             return redirect('art:detail', item_id=item.id)
     else:
-        form = CommentForm()
-    context = {'form': form}
-    return render(request, 'art/comment_form.html', context)
+        return redirect('art:detail', item_id=item.id)
 
 @login_required(login_url='common:login')
 def comment_modify(request, comment_id):
