@@ -57,9 +57,12 @@
     </div>
     {% endfor %}
 {% else %}
-    <p>게시글이 없습니다.</p>
-{% endif %}
+    <div class="p-5">
+    <p><h5>존재하는 게시글이 없습니다.</h5></p>
     </div>
+{% endif %}
+</div>
+
     <div class="container my-5">
     <!-- 페이징처리 시작 -->
         <div class="row">
@@ -68,7 +71,7 @@
         <!-- 이전페이지 -->
         {% if item_list.has_previous %}
         <li class="page-item">
-            <a class="page-link" href="?page={{ item_list.previous_page_number }}">이전</a>
+            <a class="page-link" data-page="{{ item_list.previous_page_number }}" href="#">이전</a>
         </li>
         {% else %}
         <li class="page-item disabled">
@@ -80,11 +83,11 @@
         {% if page_number >= item_list.number|add:-4 and page_number <= item_list.number|add:4 %}
             {% if page_number == item_list.number %}
             <li class="page-item active" aria-current="page" >
-                <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+                <a class="page-link" data-page="{{ page_number }}" href="#">{{ page_number }}</a>
             </li>
             {% else %}
             <li class="page-item">
-                <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+                <a class="page-link" data-page="{{ page_number }}" href="#">{{ page_number }}</a>
             </li>
             {% endif %}
         {% endif %}
@@ -92,7 +95,7 @@
         <!-- 다음페이지 -->
         {% if item_list.has_next %}
         <li class="page-item">
-            <a class="page-link" href="?page={{ item_list.next_page_number }}">다음</a>
+            <a class="page-link" data-page="{{ item_list.next_page_number }}" href="#">다음</a>
         </li>
         {% else %}
         <li class="page-item disabled">
@@ -104,9 +107,23 @@
         <div class="col-1">
         <a href="{% url 'art:item_create' %}" class="btn text-white" style="background-color: #20c997; white-space: nowrap;">글쓰기</a>
     </div>
-    </ul>
+        </div>
     <!-- 페이징처리 끝 -->
     </div>
-</div>
-</div>
+{% endblock %}
+{% block script %}
+<script type='text/javascript'>
+$(document).ready(function(){
+    $(".page-link").on('click', function() {
+        $("#page").val($(this).data("page"));
+        $("#searchForm").submit();
+    });
+
+    $("#btn_search").on('click', function() {
+        $("#kw").val($(".kw").val());
+        $("#page").val(1);  // 검색버튼을 클릭할 경우 1페이지부터 조회한다.
+        $("#searchForm").submit();
+    });
+});
+</script>
 {% endblock %}

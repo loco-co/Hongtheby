@@ -30,7 +30,7 @@
             {% if forloop.counter < 6 %}
                 <tr style="white-space: nowrap;">
                 <th scope="row">{{ forloop.counter }}</th>
-                <td>{{ item.title }}</td>
+                <td><a href="{% url 'art:detail' item.id %}" style="color:black; text-decoration:underline;">{{ item.title }}</a></td>
                 <td><small>{{ item.create_date }}</small></td>
                 </tr>
             {% endif %}
@@ -59,7 +59,7 @@
             {% if forloop.counter < 6 %}
                 <tr style="white-space: nowrap;">
                 <th scope="row">{{ forloop.counter }}</th>
-                <td>{{ comment.content }}</td>
+                <td><a href="{% url 'art:detail' comment.item.id %}" style="color:black; text-decoration:underline;">{{ comment.content }}</a></td>
                 <td><small>{{ comment.create_date }}</small></td>
                 </tr>
             {% endif %}
