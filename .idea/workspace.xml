@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d857763-88a4-46ec-b2c5-2818a6450124" name="Default Changelist" comment="Chapter 2.6 &amp; 2.7">
-      <change afterPath="$PROJECT_DIR$/templates/common/credit.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/images/로고.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/로고.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/common/credit.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/credit.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/navbar.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -249,7 +248,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637295232022</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="소개 페이지">
+      <created>1637306947644</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1637306947644</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -265,7 +271,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Chapter 2.2" />
     <MESSAGE value="Chapter 2.4" />
     <MESSAGE value="Chapter 2.5" />
     <MESSAGE value="Chapter 2.6 &amp; 2.7" />
@@ -290,6 +295,7 @@
     <MESSAGE value="마이페이지 프론트엔드" />
     <MESSAGE value="마이페이지 백엔드" />
     <MESSAGE value="댓글 기능 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="댓글 기능 수정" />
+    <MESSAGE value="소개 페이지" />
+    <option name="LAST_COMMIT_MESSAGE" value="소개 페이지" />
   </component>
 </project>
