@@ -161,6 +161,7 @@ def comment_delete(request, comment_id):
         comment.delete()
     return redirect('art:detail', item_id=comment.item.id)
 
+@login_required(login_url='common:login')
 def vote_item(request, item_id):
     """
     item 추천
@@ -173,3 +174,15 @@ def vote_item(request, item_id):
     else:
         item.voter.add(request.user)
     return redirect('art:detail', item_id=item.id)
+
+@login_required(login_url='common:login')
+def vote_comment(request, comment_id):
+    """
+    comment 추천
+    """
+    comment = get_object_or_404(Comment, pk=comment_id)
+    if request.user in comment.voter.all():
+        messages.warning(request, '이미 추천한 댓글입니다')
+    else:
+        comment.voter.add(request.user)
+    return redirect('art:detail', item_id=comment.item.id)
