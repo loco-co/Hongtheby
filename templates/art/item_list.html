@@ -125,7 +125,6 @@ $(document).ready(function(){
         $("#page").val($(this).data("page"));
         $("#searchForm").submit();
     });
-
     $("#btn_search").on('click', function() {
         $("#kw").val($(".kw").val());
         $("#page").val(1);  // 검색버튼을 클릭할 경우 1페이지부터 조회한다.
@@ -135,6 +134,9 @@ $(document).ready(function(){
         $("#so").val($(this).val());
         $("#page").val(1);
         $("#searchForm").submit();
+    });
+    $(".c").on('change', function() {
+        $("#c").val($(this).val());
     });
 });
 </script>
