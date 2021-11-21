@@ -73,8 +73,11 @@
                 <text class="mx-1" style="color:blue">+{{ comment.voter.all.count }} </text>
             </div>
             <div class="col-4 d-flex justify-content-end mx-1" style="white-space: nowrap;">
-                <div class="badge bg-light mx-1">
+                <div class="badge bg-light">
                 <a href="{% url 'art:vote_comment' comment.id  %}"><small>추천</small></a>
+                </div>
+                <div class="badge bg-light mx-1">
+                <a style="color:red" href="{% url 'art:report_comment' comment.id  %}">신고</a>
                 </div>
                 {{ comment.create_date }}
                 {% if request.user == comment.author %}

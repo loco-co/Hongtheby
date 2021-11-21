@@ -186,3 +186,16 @@ def vote_comment(request, comment_id):
     else:
         comment.voter.add(request.user)
     return redirect('art:detail', item_id=comment.item.id)
+
+@login_required(login_url='common:login')
+def report_comment(request, comment_id):
+    """
+    comment 신고
+    """
+    comment = get_object_or_404(Comment, pk=comment_id)
+    if request.user in comment.reporter.all():
+        messages.warning(request, '이미 신고한 댓글입니다. 처리중에 있습니다.')
+    else:
+        comment.reporter.add(request.user)
+        messages.success(request, '신고완료!')
+    return redirect('art:detail', item_id=comment.item.id)

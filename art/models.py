@@ -22,3 +22,4 @@ class Comment(models.Model):
     modify_date = models.DateTimeField(null=True, blank=True)
     item = models.ForeignKey(Item, null=True, blank=True, on_delete=models.CASCADE)
     voter = models.ManyToManyField(User, related_name='voter_comment')  # 추천인 추가
+    reporter = models.ManyToManyField(User, related_name='reporter_comment')
