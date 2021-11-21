@@ -60,6 +60,7 @@ def item_create(request):
         subject = request.POST['subject']
         img = request.FILES['image']
         user = request.user
+        ca = request.POST['category']
         item = Item(
             title=title,
             content=content,
@@ -68,7 +69,7 @@ def item_create(request):
             subject=subject,
             image=img,
             author=user,
-            category="1",
+            category=1,
         )
         item.save()
         return redirect('art:detail', item_id=item.id)
@@ -206,3 +207,73 @@ def report_comment(request, comment_id):
         comment.reporter.add(request.user)
         messages.success(request, '신고완료!')
     return redirect('art:detail', item_id=comment.item.id)
+
+def sculpture_view(request):
+    """
+    item 목록 출력
+    """
+    # 입력 파라미터
+    page = request.GET.get('page', '1')  # get 방식으로 호출된 페이지 중 1페이지, 디폴트는 1
+    kw = request.GET.get('kw', '')  # 검색어
+    so = request.GET.get('so', 'recent')  # 정렬기준
+    c = request.GET.get('c', '2')
+
+    if so == 'recommend':
+        item_list = Item.objects.annotate(num_voter=Count('voter')).order_by('-num_voter', '-create_date')
+    else:  # recent
+        item_list = Item.objects.order_by('-create_date')
+        item_list = item_list.filter(
+            Q(category__icontains=c)
+        )
+
+    # 작성순으로 조회
+
+    if kw:
+        item_list = item_list.filter(
+            Q(category__icontains=c) &
+            Q(subject__icontains=kw) |  # 제목검색
+            Q(content__icontains=kw) |  # 내용검색
+            Q(author__username__icontains=kw)  # 질문 글쓴이검색
+        ).distinct()
+
+    # 페이징처리
+    paginator = Paginator(item_list, 6)  # 페이지당 6개씩 보여주기
+    page_obj = paginator.get_page(page)  # 1페이지의 페이징 객체 생성, 전체를 조회하지 않음
+
+    context = {'item_list': page_obj, 'page': page, 'kw': kw, 'so': so, 'c': c}
+    return render(request, 'art/item_list.html', context)
+
+def ceramic_view(request):
+    """
+    item 목록 출력
+    """
+    # 입력 파라미터
+    page = request.GET.get('page', '1')  # get 방식으로 호출된 페이지 중 1페이지, 디폴트는 1
+    kw = request.GET.get('kw', '')  # 검색어
+    so = request.GET.get('so', 'recent')  # 정렬기준
+    c = request.GET.get('c', '3')
+
+    if so == 'recommend':
+        item_list = Item.objects.annotate(num_voter=Count('voter')).order_by('-num_voter', '-create_date')
+    else:  # recent
+        item_list = Item.objects.order_by('-create_date')
+        item_list = item_list.filter(
+            Q(category__icontains=c)
+        )
+
+    # 작성순으로 조회
+
+    if kw:
+        item_list = item_list.filter(
+            Q(category__icontains=c) &
+            Q(subject__icontains=kw) |  # 제목검색
+            Q(content__icontains=kw) |  # 내용검색
+            Q(author__username__icontains=kw)  # 질문 글쓴이검색
+        ).distinct()
+
+    # 페이징처리
+    paginator = Paginator(item_list, 6)  # 페이지당 6개씩 보여주기
+    page_obj = paginator.get_page(page)  # 1페이지의 페이징 객체 생성, 전체를 조회하지 않음
+
+    context = {'item_list': page_obj, 'page': page, 'kw': kw, 'so': so, 'c': c}
+    return render(request, 'art/item_list.html', context)

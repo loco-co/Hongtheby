@@ -18,10 +18,10 @@
     <a class="nav-link active" style="color: #20c997" aria-current="page" href="#"><strong>미술작품</strong></a>
   </li>
   <li class="nav-item mx-3">
-    <a class="nav-link" style="color: #20c997" href="#"><strong>조각품</strong></a>
+    <a class="nav-link" style="color: #20c997" href="{% url 'art:sculpture_view' %}"><strong>조각품</strong></a>
   </li>
   <li class="nav-item mx-3">
-    <a class="nav-link" style="color: #20c997" href="#"><strong>도예품</strong></a>
+    <a class="nav-link" style="color: #20c997" href="{% url 'art:ceramic_view' %}"><strong>도예품</strong></a>
   </li>
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" style="color: #20c997" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><strong>계정관리</strong></a>

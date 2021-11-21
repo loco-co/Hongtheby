@@ -16,4 +16,6 @@ urlpatterns = [
     path('vote/item/<int:item_id>/', views.vote_item, name='vote_item'),
     path('vote/comment/<int:comment_id>/', views.vote_comment, name='vote_comment'),
     path('report/comment/<int:comment_id>/', views.report_comment, name='report_comment'),
+    path('sculpture/', views.sculpture_view, name='sculpture_view'),
+    path('ceramic/', views.ceramic_view, name='ceramic_view'),
 ]
