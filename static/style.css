@@ -61,3 +61,7 @@ a { text-decoration:none }
 .mt-6 {
   margin-top: 66px !important;
 }
+.row-15 {
+    margin-left: 15px !important;
+    margin-right: 15px !important;
+}

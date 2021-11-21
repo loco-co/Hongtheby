@@ -1,7 +1,7 @@
 {% extends 'base.html' %} <!-- 상속 -->
 {% block content %}
 <!-- Carousel -->
-<div class="container lg">
+<div class="container">
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -42,7 +42,8 @@
     </div>
 </div>
 <!-- Carousel -->
-<div class="row justify-content-center border-top lg my-5">
+
+<div class="row row-15 justify-content-center border-top my-5">
 {% if item_list %}
     {% for item in item_list %}
     <div class="box m-5 mt-6">
