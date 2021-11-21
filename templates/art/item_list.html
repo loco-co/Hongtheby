@@ -48,7 +48,7 @@
     {% for item in item_list %}
     <div class="box m-5 mt-6">
         {% if item.image %}
-        <figure><img src="{{ item.image.url }}" class="img-thumbnail rounded" alt="..."></figure>
+        <a href="{% url 'art:detail' item.id %}"><figure><img src="{{ item.image.url }}" class="img-thumbnail rounded" alt="..."></figure></a>
         {% endif %}
         <a class="text-dark" href="{% url 'art:detail' item.id %}" style="text-decoration:none"><h6>🎨{{ item.subject }}</h6></a>  <!-- item.id는 인자 -->
         <span class="float-end small">

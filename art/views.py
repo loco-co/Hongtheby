@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, resolve_url
 from .models import Item, Comment
 from .forms import ItemForm, CommentForm
 from django.core.paginator import Paginator
@@ -68,7 +68,7 @@ def item_create(request):
             author=user,
         )
         item.save()
-        return redirect('art:index')
+        return redirect('art:detail', item_id=item.id)
     else:
         form = ItemForm()
     context = {'form': form}  # 템플릿에서 글등록시 사용할 폼 엘리먼트를 위해
@@ -122,7 +122,8 @@ def comment_create(request, item_id):
             comment.create_date = timezone.now()
             comment.item = item
             comment.save()
-            return redirect('art:detail', item_id=item.id)
+            return redirect('{}#comment_{}'.format(
+                resolve_url('art:detail', item_id=comment.item.id), comment.id))
     else:
         return redirect('art:detail', item_id=item.id)
 
@@ -142,7 +143,8 @@ def comment_modify(request, comment_id):
             comment = form.save(commit=False)
             comment.modify_date = timezone.now()
             comment.save()
-            return redirect('art:detail', item_id=comment.item.id)
+            return redirect('{}#comment_{}'.format(
+                resolve_url('art:detail', item_id=comment.item.id), comment.id))
     else:
         form = CommentForm(instance=comment)
     context = {'form': form}
@@ -173,7 +175,8 @@ def vote_item(request, item_id):
         messages.warning(request, '이미 추천한 게시글입니다')
     else:
         item.voter.add(request.user)
-    return redirect('art:detail', item_id=item.id)
+    return redirect('{}#item_{}'.format(
+        resolve_url('art:detail', item_id=item.id), item.id))
 
 @login_required(login_url='common:login')
 def vote_comment(request, comment_id):
@@ -185,7 +188,8 @@ def vote_comment(request, comment_id):
         messages.warning(request, '이미 추천한 댓글입니다')
     else:
         comment.voter.add(request.user)
-    return redirect('art:detail', item_id=comment.item.id)
+    return redirect('{}#comment_{}'.format(
+            resolve_url('art:detail', item_id=comment.item.id), comment.id))
 
 @login_required(login_url='common:login')
 def report_comment(request, comment_id):

@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from common.forms import UserForm
 from art.models import Item, Comment
 from django.db.models import Q
+from django.contrib.auth.decorators import login_required
 
 def signup(request):
     """
@@ -21,6 +22,7 @@ def signup(request):
         form = UserForm()
     return render(request, 'common/signup.html', {'form': form})
 
+@login_required(login_url='common:login')
 def mypage(request):
     """
     마이페이지
