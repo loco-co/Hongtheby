@@ -4,11 +4,9 @@
     <list default="true" id="6d857763-88a4-46ec-b2c5-2818a6450124" name="Default Changelist" comment="Chapter 2.6 &amp; 2.7">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/art/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/art/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/art/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/art/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/art/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/art/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/art/item_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/art/item_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/navbar.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -335,7 +333,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637501111397</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="최종보고서 제출">
+      <created>1637507581332</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1637507581332</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -351,7 +356,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="css" />
     <MESSAGE value="drop down nav" />
     <MESSAGE value="2021.11.12" />
     <MESSAGE value="item detail" />
@@ -376,6 +380,7 @@
     <MESSAGE value="댓글 신고 기능" />
     <MESSAGE value="앵커 박기 / 자잘한 수정" />
     <MESSAGE value="검색 옵션 추가 &amp; 카테고리 속성 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="검색 옵션 추가 &amp; 카테고리 속성 추가" />
+    <MESSAGE value="최종보고서 제출" />
+    <option name="LAST_COMMIT_MESSAGE" value="최종보고서 제출" />
   </component>
 </project>

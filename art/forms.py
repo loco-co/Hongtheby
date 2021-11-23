@@ -12,7 +12,7 @@ class ItemForm(forms.ModelForm):
             'content': '내용',
             'price': '가격',
             'image': '사진 업로드',
-            'category': '종류'
+            'category': '종류',
         }
 
 class CommentForm(forms.ModelForm):

@@ -17,34 +17,47 @@
             </div>
         {% endif %}
         <!-- 오류표시 End -->
+        <label for="s1">게시판</label>
+        <select class="form-select s1" style="width:130px" name="s1" aria-label="Default select example">
+            <option selected value="">분류</option>
+            <option value="1">미술작품</option>
+            <option value="2">조각품</option>
+            <option value="3">도예품</option>
+        </select>
+
         <div class="form-group">
             <label for="subject">글제목</label>
             <input type="text" class="form-control" name="subject" id="subject"
                    value="{{ form.subject.value|default_if_none:'' }}">
         </div>
+
         <div class="col-4">
             <label for="title">작품명</label>
             <input type="text" class="form-control" name="title" id="title"
                    value="{{ form.title.value|default_if_none:'' }}">
         </div>
+
         <div class="col-4">
             <label for="price">가격</label>
             <input type="text" class="form-control" name="price" id="price"
                    value="{{ form.price.value|default_if_none:'' }}">
         </div>
+
         <div class="form-group">
             <label for="content">내용</label>
             <textarea class="form-control" name="content"
                       id="content" rows="10">{{ form.content.value|default_if_none:'' }}</textarea>
         </div>
+
         <div class="mb-3">
             <label for="image" class="form-label">사진 업로드</label>
             <input type="file" class="form-control" name="image" id="image" >
         </div>
+
         <div align="right">
         <button type="submit" class="btn" style="background-color: #20c997;">저장하기</button>
         </div>
-        <input type="hidden" id="category" name="category" value="{{ form.c.value }}">
+        <input type="hidden" id="s1" name="s1" value="{{ s1 }}">
     </form>
 </div>
 {% endblock %}
@@ -52,14 +65,8 @@
 {% block script %}
 <script type='text/javascript'>
 $(document).ready(function(){
-    $("#btnradio1").on('click', function() {
-        $("#c").val(1);
-    });
-    $("#btnradio2").on('click', function() {
-        $("#c").val(2);
-    });
-    $("#btnradio3").on('click', function() {
-        $("#c").val(3);
+    $(".s1").on('change', function() {
+        $("#s1").val($(this).val());
     });
 });
 </script>
