@@ -1,12 +1,10 @@
 {% extends 'base.html' %} <!-- 상속 -->
 {% block content %}
+<div class="container my-5">
 <div class="mb-5">
     <div class="row border-bottom my-3 py-1">
         <div class="col">
             <h3>내가 쓴 댓글</h3>
-        </div>
-        <div class="col-2 pt-4">
-            <a href="{% url 'common:my_comment' %}" style="color:black;"><h6>전체보기..</h6></a>
         </div>
     </div>
     <table class="table">
@@ -18,8 +16,8 @@
         </tr>
         </thead>
         <tbody>
-        {% if my_comment %}
-        {% for comment in my_comment %}
+        {% if my_comment_list %}
+        {% for comment in my_comment_list %}
         <tr style="white-space: nowrap;">
             <th scope="row">{{ forloop.counter }}</th>
             <td><a href="{% url 'art:detail' comment.item.id %}" style="color:black; text-decoration:underline;">{{ comment.content }}</a></td>
@@ -33,5 +31,6 @@
         {% endif %}
         </tbody>
     </table>
+</div>
 </div>
 {% endblock %}

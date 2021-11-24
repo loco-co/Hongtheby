@@ -32,8 +32,8 @@
                 </tr>
             </thead>
             <tbody>
-            {% if my_item %}
-            {% for item in my_item %}
+            {% if my_item_list %}
+            {% for item in my_item_list %}
             {% if forloop.counter < 6 %}
                 <tr style="white-space: nowrap;">
                 <th scope="row">{{ forloop.counter }}</th>
@@ -68,8 +68,8 @@
                 </tr>
             </thead>
             <tbody>
-            {% if my_comment %}
-            {% for comment in my_comment %}
+            {% if my_comment_list %}
+            {% for comment in my_comment_list %}
             {% if forloop.counter < 6 %}
                 <tr style="white-space: nowrap;">
                 <th scope="row">{{ forloop.counter }}</th>
