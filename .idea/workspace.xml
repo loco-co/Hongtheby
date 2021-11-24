@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6d857763-88a4-46ec-b2c5-2818a6450124" name="Default Changelist" comment="Chapter 2.6 &amp; 2.7">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/common/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/common/my_comment.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/my_comment.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/common/my_item.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/my_item.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/common/mypage.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/common/mypage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -354,7 +350,21 @@
       <option name="project" value="LOCAL" />
       <updated>1637765854760</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="약간 수정">
+      <created>1637767210599</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1637767210599</updated>
+    </task>
+    <task id="LOCAL-00045" summary="ALLOWD_HOSTS 변경">
+      <created>1637768612321</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1637768612321</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -370,8 +380,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="item detail" />
-    <MESSAGE value="author 속성 추가" />
     <MESSAGE value="게시글 수정 기능" />
     <MESSAGE value="게시글 삭제 기능" />
     <MESSAGE value="게시판 수정" />
@@ -395,6 +403,8 @@
     <MESSAGE value="최종보고서 제출" />
     <MESSAGE value="게시글 분류 기능" />
     <MESSAGE value="내가 쓴 글/댓글 전체보기" />
-    <option name="LAST_COMMIT_MESSAGE" value="내가 쓴 글/댓글 전체보기" />
+    <MESSAGE value="약간 수정" />
+    <MESSAGE value="ALLOWD_HOSTS 변경" />
+    <option name="LAST_COMMIT_MESSAGE" value="ALLOWD_HOSTS 변경" />
   </component>
 </project>
