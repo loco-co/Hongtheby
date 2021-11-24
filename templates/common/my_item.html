@@ -1,0 +1,68 @@
+{% extends 'base.html' %} <!-- 상속 -->
+{% block content %}
+<div class="row row-15 justify-content-center border-top my-5">
+{% if my_item_list %}
+    {% for item in my_item_list %}
+    <div class="box m-5 mt-6">
+        {% if item.image %}
+        <a href="{% url 'art:detail' item.id %}"><figure><img src="{{ item.image.url }}" class="img-thumbnail rounded" alt="..."></figure></a>
+        {% endif %}
+        <a class="text-dark" href="{% url 'art:detail' item.id %}" style="text-decoration:none"><h6>🎨{{ item.subject }}</h6></a>  <!-- item.id는 인자 -->
+        <span class="float-end small">
+            추천<span class="badge" style="background-color: #20c997;">{{item.voter.all.count}}</span>
+            댓글<span class="badge" style="background-color: #20c997;">{{item.comment_set.count}}</span>
+            </span>
+    </div>
+    {% endfor %}
+{% else %}
+    <div class="p-5">
+    <p><h5>존재하는 게시글이 없습니다.</h5></p>
+    </div>
+{% endif %}
+</div>
+    <div class="container my-5">
+        <!-- 페이징처리 시작 -->
+        <div class="col">
+        <ul class="pagination justify-content-center">
+        <!-- 이전페이지 -->
+        {% if my_item_list.has_previous %}
+        <li class="page-item">
+            <a class="page-link" data-page="{{ item_list.previous_page_number }}" href="#">이전</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" tabindex="-1" aria-disabled="true" href="#">이전</a>
+        </li>
+        {% endif %}
+        <!-- 페이지리스트 -->
+        {% for page_number in my_item_list.paginator.page_range %}
+        {% if page_number >= my_item_list.number|add:-4 and page_number <= my_item_list.number|add:4 %}
+            {% if page_number == my_item_list.number %}
+            <li class="page-item active" aria-current="page" >
+                <a class="page-link" data-page="{{ page_number }}" href="#">{{ page_number }}</a>
+            </li>
+            {% else %}
+            <li class="page-item">
+                <a class="page-link" data-page="{{ page_number }}" href="#">{{ page_number }}</a>
+            </li>
+            {% endif %}
+        {% endif %}
+        {% endfor %}
+        <!-- 다음페이지 -->
+        {% if my_item_list.has_next %}
+        <li class="page-item">
+            <a class="page-link" data-page="{{ item_list.next_page_number }}" href="#">다음</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" tabindex="-1" aria-disabled="true" href="#">다음</a>
+        </li>
+        {% endif %}
+        </ul>
+            </div>
+        <div class="col-1">
+        <a href="{% url 'art:item_create' %}" class="btn text-white" style="background-color: #20c997; white-space: nowrap;">글쓰기</a>
+        </div>
+        </div>
+    <!-- 페이징처리 끝 -->
+{% endblock %}
