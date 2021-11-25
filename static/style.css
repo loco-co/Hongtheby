@@ -65,3 +65,6 @@ a { text-decoration:none }
     margin-left: 15px !important;
     margin-right: 15px !important;
 }
+.mb-6 {
+    margin-bottom: 170px !important;
+}

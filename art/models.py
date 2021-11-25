@@ -10,7 +10,7 @@ class Item(models.Model):
     create_date = models.DateTimeField()
     modify_date = models.DateTimeField(null=True, blank=True)
     image = models.ImageField(upload_to='images/', blank=True, null=True)
-    voter = models.ManyToManyField(User, related_name='voter_item')  # 추천인 추가
+    voter = models.ManyToManyField(User, related_name='voter_item', blank=True)  # 추천인 추가
     category = models.IntegerField()
 
     def __str__(self):  # id 대신 제목을 반환하도록

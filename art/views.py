@@ -21,6 +21,9 @@ def index(request):
         item_list = Item.objects.annotate(num_voter=Count('voter')).order_by('-num_voter', '-create_date')
     else:  # recent
         item_list = Item.objects.order_by('-create_date')
+        item_list = item_list.filter(
+            Q(category__icontains=c)
+        )
 
     # 작성순으로 조회
 
