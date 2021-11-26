@@ -18,7 +18,7 @@
         {% endif %}
         <!-- 오류표시 End -->
         <label for="category">게시판</label>
-        <select class="form-select category" style="width:130px" name="category" aria-label="Default select example">
+        <select class="form-select category my-1" style="width:130px" name="category" aria-label="Default select example">
             <option selected value="">분류</option>
             <option value="1">미술작품</option>
             <option value="2">조각품</option>
@@ -27,31 +27,38 @@
 
         <div class="form-group">
             <label for="subject">글제목</label>
-            <input type="text" class="form-control" name="subject" id="subject"
+            <input type="text" class="form-control my-1" name="subject" id="subject" placeholder="게시판에 보여질 제목"
                    value="{{ form.subject.value|default_if_none:'' }}">
         </div>
 
         <div class="col-4">
             <label for="title">작품명</label>
-            <input type="text" class="form-control" name="title" id="title"
+            <input type="text" class="form-control my-1" name="title" id="title"
                    value="{{ form.title.value|default_if_none:'' }}">
         </div>
 
         <div class="col-4">
             <label for="price">가격</label>
-            <input type="text" class="form-control" name="price" id="price"
+            <input type="text" class="form-control my-1" name="price" id="price" placeholder="원"
                    value="{{ form.price.value|default_if_none:'' }}">
         </div>
 
         <div class="form-group">
             <label for="content">내용</label>
-            <textarea class="form-control" name="content"
+            <textarea class="form-control my-1" name="content" placeholder="작품을 설명해주세요."
                       id="content" rows="10">{{ form.content.value|default_if_none:'' }}</textarea>
         </div>
 
         <div class="mb-3">
-            <label for="image" class="form-label">사진 업로드</label>
-            <input type="file" class="form-control" name="image" id="image">{{form.image}}
+            {% if form.image.value %}
+            <label for="image" class="form-label my-1">변경할 사진 선택</label>
+            {% else %}
+            <label for="image" class="form-label my-1">사진 업로드</label>
+            {% endif %}
+            <input type="file" class="form-control mb-2" name="image" id="image">
+            {% if form.image.value %}
+            <span>현재파일:</span><a class="mx-2" href="/media/{{form.image.value}}">{{ form.image.value }}</a>
+            {% endif %}
         </div>
 
         <div align="right">
