@@ -63,7 +63,7 @@ def item_create(request):
         subject = request.POST['subject']
         img = request.FILES['image']
         user = request.user
-        ca = request.POST['s1']
+        category = request.POST['category']
         item = Item(
             title=title,
             content=content,
@@ -72,7 +72,7 @@ def item_create(request):
             subject=subject,
             image=img,
             author=user,
-            category=ca,
+            category=category,
         )
         item.save()
         return redirect('art:detail', item_id=item.id)
